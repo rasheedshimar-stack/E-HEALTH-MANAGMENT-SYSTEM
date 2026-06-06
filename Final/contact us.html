@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Health | Contact Us</title>
+    <style>
+        /* CSS MASTER RESETS & THEME DESIGN SYSTEM VARIABLES */
+        :root {
+            --primary-teal: #4cb1be;
+            --primary-hover: #3ca0ad;
+            --text-dark: #111111;
+            --text-muted: #555555;
+            --bg-light: #f5f5f5;
+            --card-gray: #ececec;
+            --border-muted: #777777;
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* 1. MONDAY TO SUNDAY UTILITY ROW STRIP */
+        .top-utility-bar {
+            background-color: var(--primary-teal);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* 2. MAIN HEADER NAVIGATION BAR COMPONENT */
+        .main-header {
+            background-color: var(--card-gray);
+            border-bottom: 1px solid var(--border-muted);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-circle-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu-links a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* CENTRALIZED ALIGNMENT WORKSPACE CONTAINER */
+        .layout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 3. CORE PAGE HEADING (With Exact Design Blueprint Padding) */
+        .page-title {
+            text-align: center;
+            font-size: 44px;
+            font-weight: 700;
+            padding: 24px 0; /* Exact 24px vertical padding as specified in image specs */
+        }
+
+        /* 4. Contact Form Component Space Grid Splitting */
+        .workspace-split-row {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 24px; /* 24px grid spacing boundary gap rules */
+            padding-bottom: 24px; /* Balanced bottom boundary spacer */
+            align-items: start;
+        }
+
+        /* LEFT WORKSPACE ELEMENT HUB: CAPTURE CONTROLS INPUT CONTAINER */
+        .contact-form-block {
+            display: flex;
+            flex-direction: column;
+            gap: 24px; /* Consistent 24px element alignment gaps layout */
+            padding: 24px; /* 24px inside element padding parameter rules */
+        }
+
+        .form-row-dual-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px; /* 24px horizontal control split parameter */
+        }
+
+        .form-field-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid var(--border-muted);
+            border-radius: 12px;
+            background-color: var(--bg-light);
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .form-field-control:focus {
+            border-color: var(--primary-teal);
+            background-color: #ffffff;
+        }
+
+        .form-field-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        textarea.form-field-control {
+            resize: vertical;
+            min-height: 180px;
+        }
+
+        /* BLUEPRINT BUTTON INSTANCE */
+        .submit-action-btn {
+            width: 100%;
+            background-color: var(--primary-teal);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-action-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* RIGHT WORKSPACE ELEMENT HUB: DIRECOTORY DATA BLOCKS COMPONENT */
+        .directory-info-sidebar {
+            background-color: var(--card-gray);
+            border-radius: 16px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px; /* Balanced spacing distribution between informational blocks */
+            margin-top: 24px; /* Visual grid optimization spacing */
+        }
+
+        .info-card-node {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px; /* Spacing between vector text icon symbol indicator and data fields */
+        }
+
+        .vector-icon-indicator {
+            font-size: 24px;
+            line-height: 1;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .node-content-details h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+        }
+
+        .node-content-details p {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* ADAPTIVE MOBILE & TABLET LAYOUT ENGINE OVERRIDES */
+        @media (max-width: 850px) {
+            .main-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-menu-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            .workspace-split-row {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .form-row-dual-split {
+                grid-template-columns: 1fr;
+            }
+            .directory-info-sidebar {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP UTILITY STRIP INFOBAR -->
+    <div class="top-utility-bar">
+        MONDAY TO SUNDAY- 24h SERVICE
+    </div>
+
+    <!-- 2. MAIN APP NAVIGATION ROW HEADER -->
+    <header class="main-header">
+        <div class="logo-block">
+            <div class="logo-circle-icon"></div>
+            <h1 class="logo-text">E - HEALTH</h1>
+        </div>
+        <nav>
+            <ul class="nav-menu-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Doctor</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="#">My Booking</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">List</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CENTRAL CONTENT CONTAINER HUB -->
+    <main class="layout-container">
+        
+        <!-- 3. PAGE CENTRAL TITLE SECTION -->
+        <h2 class="page-title">Contact Us</h2>
+
+        <!-- 4. TWO COLUMN REFLOW CONTENT LAYER WORKSPACE -->
+        <div class="workspace-split-row">
+            
+            <!-- LEFT INPUT FORMS GROUP SEGMENT -->
+            <form class="contact-form-block" action="#" method="POST" onsubmit="event.preventDefault(); alert('Message successfully logged.');">
+                
+                <!-- Dual form entry fields array container row segment -->
+                <div class="form-row-dual-split">
+                    <input type="text" class="form-field-control" placeholder="Your Name" required>
+                    <input type="email" class="form-field-control" placeholder="Your Email" required>
+                </div>
+                
+                <!-- Single field line layout elements -->
+                <div>
+                    <input type="tel" class="form-field-control" placeholder="Phone Number">
+                </div>
+                
+                <!-- Textarea comment content descriptor panel row element -->
+                <div>
+                    <textarea class="form-field-control" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <!-- Form action triggers submit instance execution container element -->
+                <button type="submit" class="submit-action-btn">Send Message</button>
+            </form>
+
+            <!-- RIGHT COMPONENT ADJACENT SIDEBAR INFOPANEL -->
+            <aside class="directory-info-sidebar">
+                
+                <!-- Address row element segment -->
+                <div class="info-card-node">
+                    <span class="vector-icon-indicator">📍</span>
+                    <div class="node-content-details">
+                        <h4>Physical Address:</h4>
+                        <p>123 Health Street,<br>City, Country</p>
+                    </div>
+                </div>
+
+                <!-- Email contact row element segment -->
+                <div class="info-card-node">
+                    <span class="vector-icon-indicator">✉️</span>
+                    <div class="node-content-details">
+                        <h4>Support Email:</h4>
+                        <p>support@e-health.com</p>
+                    </div>
+                </div>
+
+                <!-- Phone directory link segment row element -->
+                <div class="info-card-node">
+                    <span class="vector-icon-indicator">📞</span>
+                    <div class="node-content-details">
+                        <h4>Support Phone:</h4>
+                        <p>+1 123-455-7899</p>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+</body>
+</html>
