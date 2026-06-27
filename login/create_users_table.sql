@@ -1,0 +1,12 @@
+-- Create the database and users table for E-Health
+CREATE DATABASE IF NOT EXISTS ehealth CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ehealth;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fullname VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  phone VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

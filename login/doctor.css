@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Top Bar */
+.top-bar{
+    background:#12c7d3;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-weight:bold;
+}
+
+/* Navbar */
+.navbar{
+    background:#777;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.circle{
+    width:35px;
+    height:35px;
+    background:#ddd;
+    border-radius:50%;
+    margin-right:15px;
+}
+
+.logo h1{
+    color:black;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+}
+
+.menu li{
+    margin-left:25px;
+}
+
+.menu li a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    font-size:14px;
+}
+
+/* Doctors Section */
+.doctors{
+    text-align:center;
+    padding:30px;
+}
+
+.doctors h2{
+    font-size:50px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.doctor-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.doctor-card{
+    width:260px;
+    background:#ddd;
+    padding:20px;
+    border-radius:5px;
+}
+
+.doctor-img{
+    width:105px;
+    height:105px;
+    border:1px solid #666;
+    border-radius:50%;
+    margin:0 auto 15px;
+    background:#eee;
+}
+
+.doctor-card h3{
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+.doctor-card h4{
+    font-size:18px;
+    margin-bottom:15px;
+    font-weight:normal;
+}
+
+.doctor-card p{
+    text-align:left;
+    margin:8px 0;
+    font-size:16px;
+}
+
+.doctor-card button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    background:#0d86ff;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.doctor-card button:hover{
+    background:#006fe6;
+}
