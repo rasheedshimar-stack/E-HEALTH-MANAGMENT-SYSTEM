@@ -1,3 +1,20 @@
+<?php
+include 'db_connection.php';
+$result = $conn->query("SELECT * FROM about_content WHERE id=1");
+$row = $result ? $result->fetch_assoc() : null;
+
+
+if (!$row) {
+    $row = [
+        'title' => 'Our Vision For Connected Care',
+        'paragraph1' => 'E-Health is dedicated to transforming clinical system synchronization. By bringing patients, verified medical doctors, and booking management modules into an integrated interface, we remove administrative friction from healthcare tracking workflows.',
+        'paragraph2' => 'We empower healthcare providers with real-time operational dashboard instruments, and offer users simple, stress-free channel matchmaking parameters that remain active 24 hours a day, 7 days a week.',
+        'mission' => 'To eliminate medical coordination blockages globally by delivering accessible, responsive, and reliable connection points across every user session.',
+        'vision' => 'To establish the foundational cloud software layout configuration that powers medical records transparency and quick, distributed booking pipelines.',
+        'core_values' => 'Absolute database processing speed, strict information encryption compliance, and functional platform simplicity drive every update layer we launch.'
+    ];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Health | About Us</title>
     <style>
-        /* CSS MASTER RESETS & THEME DESIGN SYSTEM VARIABLES */
+        
         :root {
             --primary-teal: #4cb1be;
             --primary-hover: #3ca0ad;
@@ -30,7 +47,7 @@
             line-height: 1.6;
         }
 
-        /* 1. MONDAY TO SUNDAY UTILITY ROW STRIP */
+        
         .top-utility-bar {
             background-color: var(--primary-teal);
             color: var(--text-dark);
@@ -41,7 +58,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* 2. MAIN HEADER NAVIGATION BAR COMPONENT */
+        
         .main-header {
             background-color: var(--card-gray);
             border-bottom: 1px solid var(--border-muted);
@@ -88,26 +105,26 @@
             color: var(--primary-hover);
         }
 
-        /* CENTRALIZED ALIGNMENT WORKSPACE CONTAINER */
+        
         .layout-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* 3. CORE PAGE HEADING (With Exact Blueprint Padding Rules) */
+        
         .page-title {
             text-align: center;
             font-size: 44px;
             font-weight: 700;
-            padding: 24px 0; /* Matching identical 24px padding layout specs */
+            padding: 24px 0; 
         }
 
-        /* 4. ABOUT SECTION STORY GRID ROW SPLIT */
+        
         .about-workspace-row {
             display: grid;
             grid-template-columns: 1.4fr 1fr;
-            gap: 24px; /* Maintaining systematic 24px splitting margins */
+            gap: 24px; 
             padding-bottom: 24px;
             align-items: center;
         }
@@ -130,7 +147,7 @@
             color: #333333;
         }
 
-        /* BRAND GRAPHIC REPRESENTATION CARD */
+        
         .about-graphic-placeholder {
             background-color: var(--card-gray);
             border-radius: 16px;
@@ -143,7 +160,7 @@
             box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
         }
 
-        /* 5. CORE BUSINESS CORPORATE PILLARS SEGMENT BLOCK */
+        
         .pillars-section-wrapper {
             background-color: var(--bg-light);
             padding: 40px 24px;
@@ -192,7 +209,7 @@
             line-height: 1.5;
         }
 
-        /* ADAPTIVE MOBILE & TABLET LAYOUT ENGINE OVERRIDES */
+        
         @media (max-width: 850px) {
             .main-header {
                 flex-direction: column;
@@ -210,19 +227,19 @@
             }
             .about-graphic-placeholder {
                 height: 240px;
-                order: -1; /* Pushes vector card to top position on narrow layouts */
+                order: -1; 
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. TOP UTILITY STRIP INFOBAR -->
+    
     <div class="top-utility-bar">
         MONDAY TO SUNDAY- 24h SERVICE
     </div>
 
-    <!-- 2. MAIN APP NAVIGATION ROW HEADER -->
+    
     <header class="main-header">
         <div class="logo-block">
             <div class="logo-circle-icon"></div>
@@ -230,8 +247,9 @@
         </div>
         <nav>
             <ul class="nav-menu-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#" class="active">About Us</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="about.php" class="active">About Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
                 <li><a href="#">Account</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Doctor</a></li>
@@ -243,51 +261,51 @@
         </nav>
     </header>
 
-    <!-- MAIN CENTRAL CONTENT CONTAINER HUB -->
+    
     <main class="layout-container">
         
-        <!-- 3. PAGE CENTRAL TITLE SECTION -->
+        
         <h2 class="page-title">About Us</h2>
 
-        <!-- 4. TWO COLUMN REFLOW CONTENT LAYER STORY WORKSPACE -->
+        
         <div class="about-workspace-row">
             
             <article class="about-story-content">
-                <h3>Our Vision For Connected Care</h3>
-                <p>E-Health is dedicated to transforming clinical system synchronization. By bringing patients, verified medical doctors, and booking management modules into an integrated interface, we remove administrative friction from healthcare tracking workflows.</p>
-                <p>We empower healthcare providers with real-time operational dashboard instruments, and offer users simple, stress-free channel matchmaking parameters that remain active 24 hours a day, 7 days a week.</p>
+                <h3><?= htmlspecialchars($row['title'] ?? '') ?></h3>
+                <p><?= nl2br(htmlspecialchars($row['paragraph1'] ?? '')) ?></p>
+                <p><?= nl2br(htmlspecialchars($row['paragraph2'] ?? '')) ?></p>
             </article>
 
-            <!-- Brand vector container layout panel -->
+            
             <div class="about-graphic-placeholder">
                 <img src="images.jfif">
             </div>
 
         </div>
 
-        <!-- 5. THREE CARD STRATEGIC PILLARS FRAMEWORK SEGMENT -->
+        
         <section class="pillars-section-wrapper">
             <div class="pillars-flex-grid">
                 
-                <!-- Card Item 1 -->
+                
                 <div class="pillar-data-card">
                     <span class="pillar-vector-symbol">🎯</span>
                     <h4>Our Mission</h4>
-                    <p>To eliminate medical coordination blockages globally by delivering accessible, responsive, and reliable connection points across every user session.</p>
+                    <p><?= nl2br(htmlspecialchars($row['mission'] ?? '')) ?></p>
                 </div>
 
-                <!-- Card Item 2 -->
+                
                 <div class="pillar-data-card">
                     <span class="pillar-vector-symbol">👁️</span>
                     <h4>Our Vision</h4>
-                    <p>To establish the foundational cloud software layout configuration that powers medical records transparency and quick, distributed booking pipelines.</p>
+                    <p><?= nl2br(htmlspecialchars($row['vision'] ?? '')) ?></p>
                 </div>
 
-                <!-- Card Item 3 -->
+                
                 <div class="pillar-data-card">
                     <span class="pillar-vector-symbol">🛡️</span>
                     <h4>Core Values</h4>
-                    <p>Absolute database processing speed, strict information encryption compliance, and functional platform simplicity drive every update layer we launch.</p>
+                    <p><?= nl2br(htmlspecialchars($row['core_values'] ?? '')) ?></p>
                 </div>
 
             </div>
